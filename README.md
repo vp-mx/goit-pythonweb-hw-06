@@ -54,3 +54,38 @@ alembic upgrade head
 ```bash
 python seed.py
 ```
+
+## Queries
+
+The `select_statements.py` file contains 10 predefined query functions:
+
+1. **select_1()** - Find top 5 students with the highest average grade across all subjects
+2. **select_2(subject_name)** - Find the student with the highest average grade in a specific subject
+3. **select_3(subject_name)** - Find average grade by group for a specific subject
+4. **select_4()** - Find overall average grade across all students
+5. **select_5(teacher_name)** - Find courses taught by a specific teacher
+6. **select_6(group_name)** - Find list of students in a specific group
+7. **select_7(group_name, subject_name)** - Find grades for students in a group for a specific subject
+8. **select_8(teacher_name)** - Find average grade given by a specific teacher
+9. **select_9(student_name)** - Find list of courses taken by a specific student
+10. **select_10(student_name, teacher_name)** - Find courses a student takes from a specific teacher
+
+### Create a new migration
+
+After modifying models in `models.py`:
+
+```bash
+alembic revision --autogenerate -m "description of changes"
+```
+
+### Apply migrations
+
+```bash
+alembic upgrade head
+```
+
+### Rollback migration
+
+```bash
+alembic downgrade -1
+```

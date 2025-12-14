@@ -10,6 +10,7 @@ load_dotenv()
 @dataclass
 class Settings:
     """Application settings loaded from environment variables or .env file."""
+
     db_user: str
     db_password: str
     db_host: str = "localhost"
@@ -21,8 +22,7 @@ class Settings:
     def database_url(self) -> str:
         """Build SQLAlchemy-compatible database URL."""
         return (
-            f"postgresql+psycopg2://{self.db_user}:{self.db_password}"
-            f"@{self.db_host}:{self.db_port}/{self.db_name}"
+            f"postgresql+psycopg2://{self.db_user}:{self.db_password}" f"@{self.db_host}:{self.db_port}/{self.db_name}"
         )
 
 
@@ -60,5 +60,5 @@ def get_settings() -> Settings:
         sqlalchemy_echo=sqlalchemy_echo,
     )
 
-settings = get_settings()
 
+settings = get_settings()
